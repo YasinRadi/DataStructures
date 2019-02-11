@@ -1,6 +1,10 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
+/**
+ * Breadth-First Search implementation class.
+ * @author Yasin Radi
+ */
 public class GraphBFS {
 
     // Num of vertices
@@ -88,5 +92,5 @@ public class GraphBFS {
 
         System.out.println("BFS starting from v3: ");
         g.BFS(3);
-    }
+    };
 };
