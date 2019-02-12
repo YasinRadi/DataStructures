@@ -28,12 +28,11 @@ class RBTree {
         void inorderHelper(struct Node*);
 
         // Utility function to insert new node with given key
-        struct Node* BSTInsert(struct Node*, struct Node*);
+        struct Node* insertHelper(struct Node*, struct Node*);
 
         // Utility function to do level order traversal
         void levelOrderHelper(struct Node*);
-    
-    protected:
+
         // Performs a subtree left rotation starting 
         void rotateLeft(struct Node*, struct Node*);
 
@@ -215,7 +214,7 @@ void RBTree::insert(const int &data) {
     struct Node* node = new Node(data);
 
     // Do a normal BST insert
-    root = BSTInsert(root, node);
+    root = insertHelper(root, node);
 
     // Fix Red Black Tree Violation
     fixViolation(root, node);
@@ -253,16 +252,19 @@ void RBTree::levelOrderHelper(struct Node* root) {
     }
 };
 
-struct Node* RBTree::BSTInsert(struct Node* root, struct Node* node) {
+struct Node* RBTree::insertHelper(struct Node* root, struct Node* node) {
     // If tree is empty return new node
-    if (root == nullptr) return node;
+    if (root == nullptr) {
+        root = node;
+        return node;
+    }
 
     // Otherwise, recur down tree
     if (node->data < root->data) {
-        root->left = BSTInsert(root->left, node);
+        root->left = insertHelper(root->left, node);
         root->left->parent = root;
     } else if (node->data > root->data) {
-        root->right = BSTInsert(root->right, node);
+        root->right = insertHelper(root->right, node);
         root->right->parent = root;
     }
 

@@ -15,16 +15,16 @@ public class RedBlackTree {
     // Each of the tree nodes structure
     private class Node {
         // Data held by the node
-        public int data;
+        private int data;
 
         // Color of the node
-        public COLOR color;
+        private COLOR color;
 
         // Nodes of its subtree
-        public Node left, right, parent;
+        private Node left, right, parent;
 
         // Node constructor
-        public Node(int data) {
+        private Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
@@ -45,7 +45,7 @@ public class RedBlackTree {
      * @param node  Node
      * @return      Node
      */
-    private Node BSTInsert(Node root, Node node) {
+    private Node insertHelper(Node root, Node node) {
         // If tree is empty return new node.
         if (root == null) {
             return node;
@@ -53,13 +53,13 @@ public class RedBlackTree {
 
         // Otherwise, recur down the tree
         if (node.data < root.data) {
-            root.left = BSTInsert(root.left, node);
+            root.left = insertHelper(root.left, node);
             root.left.parent = root;
         } else if (node.data > root.data) {
-            root.right = BSTInsert(root.right, node);
+            root.right = insertHelper(root.right, node);
             root.right.parent = root;
         }
-
+        
         // Return unchanged node
         return root; 
     };
@@ -109,7 +109,7 @@ public class RedBlackTree {
      * at the given node.
      * @param node  Node
      */
-    protected void rotateLeft(Node node) {
+    private void rotateLeft(Node node) {
         Node rightNode = node.right;
         node.right = rightNode.left;
 
@@ -136,7 +136,7 @@ public class RedBlackTree {
      * at a given node.
      * @param node  Node
      */
-    protected void rotateRight(Node node) {
+    private void rotateRight(Node node) {
         Node leftNode = node.left;
         node.left = leftNode.right;
 
@@ -163,7 +163,7 @@ public class RedBlackTree {
      * subtree with root at the given node.
      * @param node  Node
      */
-    protected void fixViolation(Node node) {
+    private void fixViolation(Node node) {
         Node parentNode = null;
         Node grandParentNode = null;
 
@@ -266,7 +266,7 @@ public class RedBlackTree {
         Node node = new Node(data);
 
         // Perform a normal BST insert
-        this.root = BSTInsert(this.root, node);
+        this.root = insertHelper(this.root, node);
 
         // Fix Red Black Tree violation
         fixViolation(node);
