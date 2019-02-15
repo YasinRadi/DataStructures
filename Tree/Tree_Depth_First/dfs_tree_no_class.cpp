@@ -5,7 +5,7 @@ struct Node {
     struct Node* left, *right;
     Node(int data) {
         this->data = data;
-        left = right = NULL;
+        left = right = nullptr;
     };
 };
 
@@ -33,14 +33,25 @@ void printInOrder(const struct Node*);
 void printPreOrder(const struct Node*);
 
 
+struct Node* insertHelper(struct Node*&, struct Node*);
+
+void insert(struct Node*, int);
+
+
 int main(void) {
-    struct Node* root = new Node(1);
-    root->left        = new Node(2);
-    root->right       = new Node(3);
-    root->left->left  = new Node(4);
-    root->left->right = new Node(5);
+    struct Node* root = new Node(5);
+    insert(root, 3);
+    insert(root, 7);
+    insert(root, 2);
+    insert(root, 4);
+    insert(root, 6);
+    insert(root, 8);
+    /*root->left        = new Node(3);
+    root->right       = new Node(7);
+    root->left->left  = new Node(2);
+    root->left->right = new Node(4);
     root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    root->right->right = new Node(8);*/
 
     std::cout << "Postorder: \n";
     printPostOrder(root);
@@ -55,7 +66,7 @@ int main(void) {
 };
 
 void printPostOrder(const struct Node* node) {
-    if(node == NULL) return;
+    if (node == nullptr) return;
 
     // Incur first in left subtree
     printPostOrder(node->left);
@@ -68,7 +79,7 @@ void printPostOrder(const struct Node* node) {
 };
 
 void printInOrder(const struct Node* node) {
-    if(node == NULL) return;
+    if (node == nullptr) return;
 
     // Incur first in left subtree
     printInOrder(node->left);
@@ -81,7 +92,7 @@ void printInOrder(const struct Node* node) {
 };
 
 void printPreOrder(const struct Node* node) {
-    if(node == NULL) return;
+    if (node == nullptr) return;
 
     // First print the node itself
     std::cout << node->data << " ";
@@ -91,4 +102,28 @@ void printPreOrder(const struct Node* node) {
 
     // Finally go to right subtree
     printPreOrder(node->right);
+};
+
+struct Node* insertHelper(struct Node*& root, struct Node* node) {
+    // If tree is empty, return new node
+    if (root == nullptr) return node;
+    std::cout << root->data << " ";
+
+    // Otherwise, recur down the tree
+    if (node->data < root->data) {
+        root->left = insertHelper(root->left, node);
+    } else if (node->data < root->data) {
+        root->right = insertHelper(root->right, node);
+    }
+
+    // Return subtree root
+    return root;
+};
+
+void insert(struct Node* root, const int data) {
+    // Create new node to be inserted
+    struct Node* node = new Node(data);
+
+    // Perform normal BST insert.
+    insertHelper(root, node);
 };
