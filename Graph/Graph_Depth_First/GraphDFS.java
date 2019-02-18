@@ -35,8 +35,8 @@ public class GraphDFS {
 
         // Recurr for all the vertices
         // adjacent to this vertex
-        for(int element : this.adj[nodeIndex])
-            if(!visited[element]) 
+        for (int element : this.adj[nodeIndex])
+            if (!visited[element]) 
                 DFSUtil(element, visited, sb);
     };
 
@@ -60,7 +60,7 @@ public class GraphDFS {
 
         // Mark all the vertices as not visited
         boolean[] visited = new boolean[this.numVertex];
-        for(int i = 0; i < this.numVertex; i++) 
+        for (int i = 0; i < this.numVertex; i++) 
             visited[i] = false;
 
         // Call the recursive helper method to

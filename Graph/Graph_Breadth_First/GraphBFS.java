@@ -52,7 +52,7 @@ public class GraphBFS {
         // Builder to print result
         StringBuilder sb = new StringBuilder();
 
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             // Dequeue a vertex from the queue and print it
             int nodes = q.poll();
             sb.append(nodes).append(" ");
