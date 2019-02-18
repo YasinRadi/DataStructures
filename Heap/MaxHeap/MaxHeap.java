@@ -1,4 +1,7 @@
 
+/**
+ * Max Heap implementation class.
+ */
 public class MaxHeap {
     
     // Array to store heap elements
@@ -32,8 +35,12 @@ public class MaxHeap {
         return this.A[0];
     };
 
+    /**
+     * Fix Heap properties violation.
+     * @param i     Index upon to fix the violation.
+     */
     private void fixHeapProperty(int i) {
-        while(i != 0 && this.A[parent(i)] < this.A[i]) {
+        while (i != 0 && this.A[parent(i)] < this.A[i]) {
             int tmp = this.A[i];
             this.A[i] = this.A[parent(i)];
             this.A[parent(i)] = tmp;
@@ -41,8 +48,12 @@ public class MaxHeap {
         }
     };
 
+    /**
+     * Inserts a new value into the heap.
+     * @param key   Value to be inserted in heap.
+     */
     public void insert(int key) {
-        if(this.heapSize == this.capacity) {
+        if (this.heapSize == this.capacity) {
             System.out.println("\nOverflow: could not insert key.");
             return;
         }
@@ -105,8 +116,14 @@ public class MaxHeap {
         int r = this.right(i);
         int max = i;
 
-        if(l < this.heapSize && this.A[l] > this.A[i]) max = l;
-        if(r < this.heapSize && this.A[r] > this.A[max]) max = r;
+        if (l < this.heapSize && this.A[l] > this.A[i]) {
+            max = l;
+        }
+
+        if (r < this.heapSize && this.A[r] > this.A[max]) {
+            max = r;
+        }
+        
         if(max != i) {
             int tmp = this.A[max];
             this.A[max] = this.A[i];

@@ -9,7 +9,7 @@ public class HashTable {
     final static int TABLE_SIZE = 128;
 
     // Elements storage
-    HashNode[] elements;
+    private HashNode[] elements;
 
     // Current map size
     private int size_;
