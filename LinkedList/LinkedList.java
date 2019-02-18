@@ -202,20 +202,4 @@ public class LinkedList<T> {
         pre.next = curr.next;
         this.length--;
     };
-
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList();
-        
-        for(int i = 0; i < 10; i++) list.add(i*i);
-        list.displayNodes();
-        
-        list.addAtIndex(3, 77);
-        list.addAtStart(55);
-
-        list.displayNodes();
-        list.popFromIndex(2);
-        list.pop();
-
-        list.displayNodes();  
-    };
 };

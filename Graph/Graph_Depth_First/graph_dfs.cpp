@@ -57,27 +57,3 @@ void Graph::DFS(int v) {
     // to print DFS traversal.
     DFSUtil(v, visited);
 };
-
-int main(void) {
-    Graph g(4);
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 2);
-    g.addEdge(2, 0);
-    g.addEdge(2, 3);
-    g.addEdge(3, 3);
-
-    std::cout << "DFS starting from v2: \n";
-    g.DFS(2);
-
-    std::cout << "\nDFS starting from v0: \n";
-    g.DFS(0);
-
-    std::cout << "\nDFS starting from v1: \n";
-    g.DFS(1);
-
-    std::cout << "\nDFS starting from v3: \n";
-    g.DFS(3);
-
-    return 0;
-};

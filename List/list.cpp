@@ -66,31 +66,6 @@ class List {
         int cap(void);
 };
 
-int main(void) {
-    List<int> l;
-
-    std::cout << "Is empty: " << l.isEmpty() << "\n";
-
-    for(int i = 0; i < 10; i++)
-        l.add(i * i * i);
-
-    l.display();
-
-    std::cout << "Size: " << l.size() << "\n";
-    
-    l.remove(1);
-    l.display();
-    std::cout << "Size: " << l.size() << "\n";
-    int x = 8;
-    int* p = &x;
-    std::cout << "Contains 8: " << l.contains(p) << "\n";
-    std::cout << "First: " << l.first() << "\n";
-    std::cout << "Last: " << l.last() << "\n";
-    std::cout << "Real capacity: " << l.cap() << "\n";
-
-    return 0;
-};
-
 template<typename T>
 List<T>::List() {
     capacity = 0;

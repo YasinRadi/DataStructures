@@ -208,18 +208,3 @@ class LinkedList:
         pre.next = curr.next
         del curr
         self.length -= 1
-        
-if __name__ == '__main__':
-    llist = LinkedList()
-
-    for i in range(10): llist.add(i**2)
-    llist.displayNodes()
-
-    llist.addAtIndex(3, 77)
-    llist.addAtStart(55)
-
-    llist.displayNodes()
-    llist.popFromIndex(2)
-    llist.pop()
-
-    llist.displayNodes()

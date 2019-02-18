@@ -95,26 +95,4 @@ class MinHeap {
             sb.append(this.A[i]).append(" ");
         System.out.println(sb.toString());
     };
-
-    public static void main(String[] args) {
-        MinHeap m = new MinHeap(10);
-        m.insert(3);
-        m.insert(2);
-        m.insert(15);
-        m.insert(25);
-        m.insert(35);
-        m.insert(7);
-        m.insert(52);
-
-        m.display();
-
-        System.out.println(m.extractMin());
-        System.out.println(m.getMin());
-
-        m.display();
-
-        m.setKey(3, 1);
-
-        m.display();
-    };
 };

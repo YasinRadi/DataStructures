@@ -60,23 +60,3 @@ class List:
 
     def capacity(self):
         return self._capacity
-
-
-if __name__ == '__main__':
-    l = List()
-
-    l.display()
-    print('Is Empty: {0}'.format(l.isEmpty()))
-    for i in range(10): l.add(i ** 3)
-    
-    l.display()
-
-    print('Size: {0}'.format(l.size()))
-
-    l.remove(item=8)
-    l.display()
-    print('Size: {0}'.format(l.size()))
-    print('Contains 8: {0}'.format(l.contains(8)))
-    print('First: {0}'.format(l.first()))
-    print('Last: {0}'.format(l.last()))
-    print('Real Capacity: {0}'.format(l.capacity()))

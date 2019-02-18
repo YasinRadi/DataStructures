@@ -131,21 +131,3 @@ class BFSTree:
         """ Level Order traversal tree content display. """
         self._levelOrderHelper(self.root)
         print()
-    
-
-if __name__ == '__main__':
-    tree = BFSTree()
-
-    tree.insert(50)
-    tree.insert(30)
-    tree.insert(20)
-    tree.insert(40)
-    tree.insert(70)
-    tree.insert(60)
-    tree.insert(80)
-
-    print('Inorder traversal: ')
-    tree.inorder()
-
-    print('Level Order traversal: ')
-    tree.levelOrder()

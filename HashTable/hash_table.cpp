@@ -114,25 +114,3 @@ class HashTable {
             return size_;
         };
 };
-
-const std::string check_bool(int b) {
-    return b == 0 ? "false" : "true";
-}
-
-int main(void) {
-    HashTable table;
-    int i = 10;
-    while(i--) table.insert(i, i*i);
-
-    table.display();
-
-    std::cout << "Contains key 10: " << check_bool(table.contains(10)) << std::endl;
-    std::cout << "Contains key 8: " << check_bool(table.contains(8)) << std::endl;
-    std::cout << "Size: " << table.size() << std::endl;
-    std::cout << "Remove key 2." << std::endl;
-    table.remove(2);
-
-    table.display();
-
-    return 0;
-};

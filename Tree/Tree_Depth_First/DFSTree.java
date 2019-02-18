@@ -148,25 +148,4 @@ public class DFSTree {
     public void preOrder() {
         preOrderHelper(this.root);
     };
-
-    public static void main(String[] args) {
-        DFSTree tree = new DFSTree();
-
-        tree.insert(5); 
-        tree.insert(3); 
-        tree.insert(2); 
-        tree.insert(4); 
-        tree.insert(7); 
-        tree.insert(6); 
-        tree.insert(8);
-        
-        System.out.println("PostOrder: ");
-        tree.postOrder();
-
-        System.out.println("\nInOrder: ");
-        tree.inOrder();
-
-        System.out.println("\nPreOrder: ");
-        tree.preOrder();
-    };
 };

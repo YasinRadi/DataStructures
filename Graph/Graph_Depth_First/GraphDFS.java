@@ -69,27 +69,4 @@ public class GraphDFS {
 
         System.out.println(sb.toString());
     };
-
-    public static void main(String[] args) {
-        GraphDFS g = new GraphDFS(4);
-
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(1, 2);
-        g.addEdge(2, 0);
-        g.addEdge(2, 3);
-        g.addEdge(3, 3);
-
-        System.out.println("DFS starting from v2: ");
-        g.DFS(2);
-
-        System.out.println("DFS starting from v0: ");
-        g.DFS(0);
-
-        System.out.println("DFS starting from v1: ");
-        g.DFS(1);
-
-        System.out.println("DFS starting from v3: ");
-        g.DFS(3);
-    };
 };

@@ -64,23 +64,6 @@ class LinkedList {
         struct Node<T>* getNodeBeforeIndex(int);
 };
 
-int main(void) {
-    LinkedList<int> list;
-
-    for(int i = 0; i < 10; i++) list.add(i);
-    list.displayNodes();
-
-    list.addAtIndex(3, 77);
-    list.addAtStart(55);
-
-    list.displayNodes();
-    list.popFromIndex(2);
-    list.pop();
-
-    list.displayNodes();
-    return 0;
-};
-
 template<typename T>
 bool LinkedList<T>::checkIndexBounds(int idx) {
     return (idx >= 0) && (idx < length);

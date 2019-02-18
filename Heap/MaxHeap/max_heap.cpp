@@ -127,27 +127,3 @@ void MaxHeap::display() {
     for(int i = 0; i < heap_size; i++) std::cout << A[i] << " ";
     std::cout << "\n";
 };
-
-int main(void) {
-    MaxHeap h(10);
-    h.insertKey(3);
-    h.insertKey(2);
-    h.insertKey(15);
-    h.insertKey(25);
-    h.insertKey(35);
-    h.insertKey(7);
-    h.insertKey(52);
-
-    h.display();
-
-    std::cout << h.extractMax() << " ";
-    std::cout << h.getMax() << "\n";
-    
-    h.display();
-
-    h.setKey(1, 36);
-
-    h.display();
-
-    return 0;
-};

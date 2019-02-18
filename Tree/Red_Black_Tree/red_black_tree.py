@@ -282,21 +282,3 @@ class RedBlackTree:
         """ Level Order traversal tree content display. """
         self._levelOrderHelper(self.root)
         print()
-
-
-if __name__ == '__main__':
-    tree = RedBlackTree()
-
-    tree.insert(7)
-    tree.insert(6)
-    tree.insert(5)
-    tree.insert(4)
-    tree.insert(3)
-    tree.insert(2)
-    tree.insert(1)
-
-    print('Inorder traversal: ')
-    tree.inorder()
-
-    print('Level Order traversal: ')
-    tree.levelOrder()

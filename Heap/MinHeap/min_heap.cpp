@@ -124,27 +124,3 @@ void MinHeap::display() {
     for(int i = 0; i < heap_size; i++) std::cout << A[i] << " ";
     std::cout << "\n";
 };
-
-int main(void) {
-    MinHeap h(10);
-    h.insertKey(3);
-    h.insertKey(2);
-    h.insertKey(15);
-    h.insertKey(25);
-    h.insertKey(35);
-    h.insertKey(7);
-    h.insertKey(52);
-
-    h.display();
-
-    std::cout << h.extractMin() << " ";
-    std::cout << h.getMin() << "\n";
-    
-    h.display();
-
-    h.setKey(3, 1);
-
-    h.display();
-
-    return 0;
-};

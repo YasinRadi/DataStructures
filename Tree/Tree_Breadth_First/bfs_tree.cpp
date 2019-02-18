@@ -12,24 +12,6 @@ void printLevelOrder(Node*);
 // Utility function to create a new tree node
 Node* newNode(int);
 
-
-int main(void) {
-    Node* root = newNode(1);
-    root->left = newNode(2);
-    root->right = newNode(3);
-    root->left->left = newNode(4);
-    root->left->right = newNode(5);
-    root->right->left = newNode(6);
-    root->right->right = newNode(7);
-
-    printLevelOrder(root);
-
-    std::cout << "\n";
-
-    printLevelOrder(root->right);
-    return 0;
-};
-
 void printLevelOrder(Node* root) {
     // Base case
     if(root == NULL) return;

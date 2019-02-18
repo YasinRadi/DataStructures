@@ -142,20 +142,3 @@ class HashTable:
     def size(self):
         """ Size of map. """
         return self._size
-    
-if __name__ == '__main__':
-    table = HashTable()
-
-    for i in range(10):
-        table.insert(i, i**2)
-    
-    table.display()
-
-    print('Contains key 10: {0}'.format(table.contains(10)))
-    print('Contains key 8: {0}'.format(table.contains(8)))
-    print('Size: {0}'.format(table.size()))
-    print('Remove key 2.')
-    table.remove(2)
-
-    print('Size: {0}'.format(table.size()))
-    table.display()

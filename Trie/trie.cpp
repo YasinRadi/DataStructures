@@ -41,44 +41,6 @@ void display(struct TrieNode*, char*, int);
 
 
 
-int main(void) {
-    // Input keys (only lower case 'a' => 'z')
-    std::string keys[] = {
-        "the", 
-        "a", 
-        "there", 
-        "answer",
-        "any",
-        "by",
-        "bye",
-        "their",
-        "hero",
-        "heroplane"
-    };
-
-    int n = sizeof(keys) / sizeof(keys[0]);
-
-    struct TrieNode* root = getNode();
-
-    // Build Trie
-    for(int i = 0; i < n; i++) insert(root, keys[i]);
-
-    char str[100];
-    // Display content of Trie
-    display(root, str, 0);
-
-    // Search for differents keys
-    search(root, "the") ? std::cout << "Yes\n" : std::cout << "No\n";
-
-    search(root, "these") ? std::cout << "Yes\n" : std::cout << "No\n";
-
-    remove(root, "heroplane");
-
-    search(root, "hero") ? std::cout << "Yes\n" : std::cout << "No\n";
-
-    return 0;
-};
-
 struct TrieNode* getNode() {
     struct TrieNode* pNode = new TrieNode;
 

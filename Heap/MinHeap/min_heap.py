@@ -75,31 +75,3 @@ class MinHeap:
         for i in range(self.size):
             print(self.A[i], end=' ')
         print()
-    
-
-if __name__ == '__main__':
-    h = MinHeap(10)
-    h.insert(35)
-    h.insert(3)
-    h.insert(7)
-    h.insert(15)
-    h.insert(2)
-    h.insert(25)
-    h.insert(52)
-    h.insert(11)
-    h.insert(6)
-
-    h.display()
-    print('Min extracted: {0}'.format(h.extractMin()))
-    print('Current min: {0}'.format(h.getMin()))
-
-    h.display()
-
-    h.setKey(3, 1)
-
-    h.display()
-
-    print('Min extracted: {0}'.format(h.extractMin()))
-    print('Current min: {0}'.format(h.getMin()))
-
-    h.display()

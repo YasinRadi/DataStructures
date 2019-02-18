@@ -65,27 +65,3 @@ void Graph::BFS(int s) {
         }
     }
 };
-
-int main(void) {
-    Graph g(4);
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 2);
-    g.addEdge(2, 0);
-    g.addEdge(2, 3);
-    g.addEdge(3, 3);
-
-    std::cout << "BFS starting from v2: \n";
-    g.BFS(2);
-
-    std::cout << "\nBFS starting from v0: \n";
-    g.BFS(0);
-
-    std::cout << "\nBFS starting from v1: \n";
-    g.BFS(1);
-
-    std::cout << "\nBFS starting from v3: \n";
-    g.BFS(3);
-
-    return 0;
-};

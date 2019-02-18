@@ -114,42 +114,4 @@ public class Trie {
 
         return node;
     };
-
-    public static void main(String[] args) {
-        String[] keys = {
-            "the", 
-            "a", 
-            "there", 
-            "answer",
-            "any",
-            "by",
-            "bye",
-            "their",
-            "hero",
-            "heroplane"
-        };
-
-        Trie trie = new Trie();
-
-        // Build Trie
-        for(String k : keys) trie.insert(k);
-
-        System.out.println("Is 'the' in trie?: " + 
-        trie.search("the"));
-
-        System.out.println("Is 'these' in trie?: " + 
-        trie.search("these"));
-
-        System.out.println("Is 'heroplane' in trie?: " + 
-        trie.search("heroplane"));
-
-        System.out.println("Is 'bye' in trie?: " + 
-        trie.search("bye"));
-
-        System.out.println("Remove 'heroplane'");
-        trie.remove(trie.root, "heroplane", 0);
-
-        System.out.println("Is 'heroplane' in trie?: " + 
-        trie.search("heroplane"));
-    };
 };

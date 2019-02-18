@@ -57,27 +57,6 @@ class RBTree {
         void levelOrder();
 };
 
-int main(void) {
-    RBTree tree;
-
-    tree.insert(7);
-    tree.insert(6);
-    tree.insert(5);
-    tree.insert(4);
-    tree.insert(3);
-    tree.insert(2);
-    tree.insert(1);
-
-    std::cout << "Inorder traversal of tree:\n";
-    tree.inorder();
-
-    std::cout << "\nLevel Order traversal of tree:\n";
-    tree.levelOrder();
-    
-    return 0;
-};
-
-
 void RBTree::rotateLeft(struct Node* root, struct Node* node) {
     struct Node* rightNode = node->right;
     node->right = rightNode->left;

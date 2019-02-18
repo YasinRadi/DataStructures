@@ -121,26 +121,4 @@ public class MaxHeap {
             sb.append(this.A[i]).append(" ");
         System.out.println(sb.toString());
     };
-
-    public static void main(String[] args) {
-        MaxHeap m = new MaxHeap(10);
-        m.insert(3);
-        m.insert(2);
-        m.insert(15);
-        m.insert(25);
-        m.insert(35);
-        m.insert(7);
-        m.insert(52);
-
-        m.display();
-
-        System.out.println(m.extractMax());
-        System.out.println(m.getMax());
-
-        m.display();
-
-        m.setKey(1, 36);
-
-        m.display();
-    }
 };

@@ -57,28 +57,6 @@ class DFSTree {
         void postOrder(void);
 };
 
-int main(void) {
-    DFSTree tree;
-
-    tree.insert(5); 
-    tree.insert(3); 
-    tree.insert(2); 
-    tree.insert(4); 
-    tree.insert(7); 
-    tree.insert(6); 
-    tree.insert(8);
-
-    std::cout << "Postorder: \n";
-    tree.postOrder();
-
-    std::cout << "\nInorder:  \n";
-    tree.inOrder();
-
-    std::cout << "\nPreorder:  \n";
-    tree.preOrder();
-
-    return 0;
-};
 
 void DFSTree::postOrderHelper(const struct Node* node) {
     if (node == nullptr) return;

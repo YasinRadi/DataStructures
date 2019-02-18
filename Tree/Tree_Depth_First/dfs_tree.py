@@ -168,26 +168,3 @@ class DFSTree:
         # Perform a BST insert.
         # Update root if apliable
         self.root = self._insertHelper(self.root, node)
-    
-
-if __name__ == '__main__':
-    tree = DFSTree()
-
-    tree.insert(5) 
-    tree.insert(3) 
-    tree.insert(2) 
-    tree.insert(4) 
-    tree.insert(7) 
-    tree.insert(6) 
-    tree.insert(8)
-
-    print('PostOrder: ')
-    tree.postOrder()
-
-    print('Inorder traversal: ')
-    tree.inOrder()
-
-    print('PreOrder: ')
-    tree.preOrder()
-
-    

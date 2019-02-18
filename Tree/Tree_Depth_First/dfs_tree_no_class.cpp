@@ -35,35 +35,9 @@ void printPreOrder(const struct Node*);
 
 struct Node* insertHelper(struct Node*&, struct Node*);
 
+
 void insert(struct Node*, int);
 
-
-int main(void) {
-    struct Node* root = new Node(5);
-    insert(root, 3);
-    insert(root, 7);
-    insert(root, 2);
-    insert(root, 4);
-    insert(root, 6);
-    insert(root, 8);
-    /*root->left        = new Node(3);
-    root->right       = new Node(7);
-    root->left->left  = new Node(2);
-    root->left->right = new Node(4);
-    root->right->left = new Node(6);
-    root->right->right = new Node(8);*/
-
-    std::cout << "Postorder: \n";
-    printPostOrder(root);
-
-    std::cout << "\nInorder:  \n";
-    printInOrder(root);
-
-    std::cout << "\nPreorder:  \n";
-    printPreOrder(root);
-
-    return 0;
-};
 
 void printPostOrder(const struct Node* node) {
     if (node == nullptr) return;

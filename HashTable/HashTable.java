@@ -120,22 +120,4 @@ public class HashTable {
     public int size() {
         return this.size_;
     };
-
-    public static void main(String[] args) {
-        HashTable table = new HashTable();
-        for (int i = 0; i < 10; i++) {
-            table.insert(i, i*i);
-        }
-
-        table.display();
-
-        System.out.println("Contains key 10: " + table.contains(10));
-        System.out.println("Contains key 8: " + table.contains(8));
-        System.out.println("Size: " + table.size());
-        System.out.println("Remove key 2.");
-        table.remove(2);
-
-        System.out.println("Size: " + table.size());
-        table.display();
-    }
 };
