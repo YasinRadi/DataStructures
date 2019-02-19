@@ -25,10 +25,18 @@ class MinHeap {
         return i * 2 + 2;
     };
 
+    /**
+     * Returns the min element in heap.
+     * @return  int Min element of heap.
+     */
     public int getMin() {
         return this.A[0];
     };
 
+    /**
+     * Fixes Heap properties violation.
+     * @param i int Index of node that needs to be fixed.
+     */
     private void fixHeapProperty(int i) {
         while(i != 0 && this.A[parent(i)] > this.A[i]) {
             int tmp = this.A[i];
@@ -38,6 +46,10 @@ class MinHeap {
         };
     };
 
+    /**
+     * Inserts a new value into the heap.
+     * @param key int Key of the new node.
+     */
     public void insert(int key) {
         if(this.size == this.capacity) {
             System.out.println("\nOverflow: Key could not be inserted.");
@@ -52,43 +64,60 @@ class MinHeap {
         fixHeapProperty(i);
     };
 
+    /**
+     * Sets the value of the key at index 'i'
+     * to newVal. It is assumed that newVal
+     * is lesser than A[i]
+     * @param i         int Index of node.
+     * @param newVal    int Value to be set.
+     */
     public void setKey(int i, int newVal) {
         this.A[i] = newVal;
         fixHeapProperty(i);
     };
 
+    /**
+     * Removes the min element (or root) from min heap.
+     * @return int  Min value of heap.
+     */
     public int extractMin() {
-        if(this.size <= 0) return Integer.MAX_VALUE;
-        if(this.size == 1) return this.A[--this.size];
+        if(this.size <= 0) {
+            return Integer.MIN_VALUE;
+        }
+
+        if(this.size == 1) {
+            return this.A[--this.size];
+        }
 
         // Store minimum value and remove it from heap
         int root = this.A[0];
         this.A[0] = this.A[--this.size];
-        minHeapify(0);
+        minHeapify();
 
         return root;
     };
 
+    /**
+     * Deletes a key from heap.
+     * @param i int Key to be deleted.
+     */
     public void deleteKey(int i) {
         setKey(i, Integer.MIN_VALUE);
         extractMin();
     };
 
-    public void minHeapify(int i) {
-        int l = left(i);
-        int r = right(i);
-        int min = i;
-
-        if(l < this.size && this.A[l] < this.A[i]) min = l;
-        if(l < this.size && this.A[r] < this.A[min]) min = r;
-        if(min != i) {
-            int tmp = this.A[i];
-            this.A[i] = this.A[min];
-            this.A[min] = tmp;
-            minHeapify(min);
+    /**
+     * Resolves all min heap properties violations.
+     */
+    public void minHeapify() {
+        for (int i = 0; i < this.heapSize; i++) {
+            fixHeapProperty(i);
         }
     };
 
+    /**
+     * Displays heap content.
+     */
     public void display() {
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < this.size; i++) 
