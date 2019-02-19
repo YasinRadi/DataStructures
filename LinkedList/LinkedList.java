@@ -8,12 +8,12 @@ public class LinkedList<T> {
      * Node class holding T data type implementation.
      * @param <T>   Type of the data
      */
-    private class Node<T> {
+    private class Node {
         // Data held by the node.
         public T data;
 
         // Pointer to the next node in the list.
-        public Node<T> next;
+        public Node next;
 
         // Node constructor
         public Node() {
@@ -26,17 +26,17 @@ public class LinkedList<T> {
             this.next = null;
         };
 
-        public Node(T v, Node<T> next) {
+        public Node(T v, Node next) {
             this.data = v;
             this.next = next;
         };
     };
 
     // Head node.
-    private Node<T> head;
+    private Node head;
 
     // Tail node.
-    private Node<T> tail;
+    private Node tail;
 
     // Length list atrribute.
     private int length;
@@ -58,10 +58,10 @@ public class LinkedList<T> {
 
     /**
      * Adds a given node to the list.
-     * @param node  Node<T>
+     * @param node  Node
      */
-    public void add(Node<T> node) {
-        if(this.head == null) {
+    public void add(Node node) {
+        if (this.head == null) {
             this.head = node;
             this.tail = node;
         } else {
@@ -78,17 +78,16 @@ public class LinkedList<T> {
      * @param v <T>
      */
     public void add(T v) {
-        Node<T> node = new Node<>(v);
-        add(node);
+        add(new Node(v));
     };
 
     /**
      * Displays the content of all nodes.
      */
     public void displayNodes() {
-        Node<T> node = this.head;
+        Node node = this.head;
         StringBuilder sb = new StringBuilder();
-        while(node != null) {
+        while (node != null) {
             sb.append(node.data).append(" ");
             node = node.next;
         };
@@ -99,14 +98,16 @@ public class LinkedList<T> {
     /**
      * Gets the node before the given index.
      * @param idx   int
-     * @return      Node<T>
+     * @return      Node
      */
-    public Node<T> getNodeBeforeIndex(int idx) {
-        if(!checkIndexBounds(idx)) return null;
+    public Node getNodeBeforeIndex(int idx) {
+        if(!checkIndexBounds(idx)) {
+            return null;
+        }
 
-        Node<T> curr = this.head;
-        Node<T> pre = new Node<>();
-        for(int i = 0; i < idx; i++) {
+        Node curr = this.head;
+        Node pre = new Node();
+        for (int i = 0; i < idx; i++) {
             pre = curr;
             curr = curr.next;
         };
@@ -120,21 +121,21 @@ public class LinkedList<T> {
      * @param v <T>
      */
     public void addAtStart(T v) {
-        if(this.head == null) {
+        if (this.head == null) {
             add(v);
             return;
         };
 
-        Node<T> node = new Node<>(v, this.head);
+        Node node = new Node(v, this.head);
         this.head = node;
         this.length++;
     };
 
     /**
-     * Adds a given Node<T> at the beginning of the list.
-     * @param node  Node<T>
+     * Adds a given Node at the beginning of the list.
+     * @param node  Node
      */
-    public void addAtStart(Node<T> node) {
+    public void addAtStart(Node node) {
         if(this.head == null) {
             add(node);
             return;
@@ -146,31 +147,30 @@ public class LinkedList<T> {
     };
 
     /**
-     * Adds a given Node<T> at the given index idx.
+     * Adds a given Node at the given index idx.
      * @param idx   int
-     * @param node  Node<T>
+     * @param node  Node
      */
-    public void addAtIndex(int idx, Node<T> node) {
-        if(!checkIndexBounds(idx)) return;
+    public void addAtIndex(int idx, Node node) {
+        if (!checkIndexBounds(idx)) {
+            return;
+        }
 
-        Node<T> pre = getNodeBeforeIndex(idx);
-        Node<T> curr = pre.next;
+        Node pre = getNodeBeforeIndex(idx);
+        Node curr = pre.next;
         pre.next = node;
         node.next = curr;
         this.length++;
     };
 
     /**
-     * Adds a given Node<T> created from <T> value v
+     * Adds a given Node created from <T> value v
      * at the given index idx.
      * @param idx   int
      * @param v     <T>
      */
     public void addAtIndex(int idx, T v) {
-        if(!checkIndexBounds(idx)) return;
-
-        Node<T> node = new Node<>(v);
-        addAtIndex(idx, node);
+        addAtIndex(idx, new Node(v));
     };
 
     /**
@@ -191,14 +191,14 @@ public class LinkedList<T> {
     };
 
     /**
-     * Pops out the Node<T> at the given index idx.
+     * Pops out the Node at the given index idx.
      * @param idx   int
      */
     public void popFromIndex(int idx) {
-        if(!checkIndexBounds(idx)) return;
+        if (!checkIndexBounds(idx)) return;
 
-        Node<T> pre = getNodeBeforeIndex(idx);
-        Node<T> curr = pre.next;
+        Node pre = getNodeBeforeIndex(idx);
+        Node curr = pre.next;
         pre.next = curr.next;
         this.length--;
     };
