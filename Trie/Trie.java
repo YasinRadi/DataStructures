@@ -10,17 +10,22 @@ public class Trie {
      */
     private class TrieNode {
 
+        // Alphabet size being used
         static final int ALPHABET_SIZE = 26;
     
+        // Children of node
         public TrieNode[] children;
     
+        // If this node is end of word
         public boolean isEndOfWord;
     
+        // Constructor
         public TrieNode() {
             this.isEndOfWord = false;
             this.children = new TrieNode[ALPHABET_SIZE];
-            for(int i = 0; i < ALPHABET_SIZE; i++)
+            for (int i = 0; i < ALPHABET_SIZE; i++) {
                 this.children[i] = null;
+            }
         };
     };
 
@@ -37,10 +42,11 @@ public class Trie {
     public void insert(String key) {
         TrieNode crawl = this.root;
         
-        for(int i = 0; i < key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             int idx = key.charAt(i) - 'a';
-            if(crawl.children[idx] == null)
+            if (crawl.children[idx] == null) {
                 crawl.children[idx] = new TrieNode();
+            }
             
             crawl = crawl.children[idx];
         };
@@ -57,10 +63,11 @@ public class Trie {
     public boolean search(String key) {
         TrieNode crawl = this.root;
 
-        for(int i = 0; i < key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             int idx = key.charAt(i) - 'a';
-            if(crawl.children[idx] == null)
+            if (crawl.children[idx] == null) {
                 return false;
+            }
             
             crawl = crawl.children[idx];
         };
@@ -74,8 +81,12 @@ public class Trie {
      * @return      boolean
      */
     public boolean isEmpty(TrieNode node) {
-        for(int i = 0; i < TrieNode.ALPHABET_SIZE; i++)
-            if(node.children[i] != null) return false;
+        for (int i = 0; i < TrieNode.ALPHABET_SIZE; i++) {
+            if (node.children[i] != null) {
+                return false;
+            }
+        }
+            
         return true;
     };
 
@@ -88,17 +99,23 @@ public class Trie {
      */
     public TrieNode remove(TrieNode node, String key, int depth) {
         // Tree is empty
-        if(node == null) return null;
+        if (node == null) {
+            return null;
+        }
 
         // If last character is being processed
-        if(depth == key.length()) {
+        if (depth == key.length()) {
             
             // This node is no more end of word after
             // removing given key
-            if(node.isEndOfWord) node.isEndOfWord = false;
+            if (node.isEndOfWord) {
+                node.isEndOfWord = false;
+            }
 
             // If given is not prefix of any other word
-            if(isEmpty(node)) node = null;
+            if (isEmpty(node)) {
+                node = null;
+            }
             
             return node;
         };
@@ -110,7 +127,9 @@ public class Trie {
 
         // If root does not have any children (it's only child got
         // deleted) and it's not end of word
-        if(isEmpty(node) && node.isEndOfWord == false) node = null;
+        if (isEmpty(node) && node.isEndOfWord == false) {
+            node = null;
+        }
 
         return node;
     };
