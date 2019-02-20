@@ -31,14 +31,6 @@ public class DFSTree {
         this.root = null;
     };
 
-    public Node getRoot() {
-        return this.root;
-    };
-
-    public void setRoot(Node root) {
-        this.root = root;
-    };
-
     /**
      * Inserts a node with the given data into the tree.
      * @param data  int
@@ -129,6 +121,7 @@ public class DFSTree {
      */
     public void postOrder() {
         postOrderHelper(this.root);
+        System.out.println();
     };
 
     /**
@@ -138,6 +131,7 @@ public class DFSTree {
      */
     public void inOrder() {
         inOrderHelper(this.root);
+        System.out.println();
     };
 
     /**
@@ -147,5 +141,6 @@ public class DFSTree {
      */
     public void preOrder() {
         preOrderHelper(this.root);
+        System.out.println();
     };
 };

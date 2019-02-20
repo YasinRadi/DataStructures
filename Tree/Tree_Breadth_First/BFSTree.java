@@ -58,17 +58,17 @@ public class BFSTree {
     };
 
     /**
-     * Recursive helper function for inorder traversal.
+     * Recursive helper function for inOrder traversal.
      * @param node  Node
      */
-    private void inorderHelper(final Node node) {
+    private void inOrderHelper(final Node node) {
         if (node == null) {
             return;
         }
 
-        inorderHelper(node.left);
+        inOrderHelper(node.left);
         System.out.print(node.data + " ");
-        inorderHelper(node.right);
+        inOrderHelper(node.right);
     };
 
     /**
@@ -109,9 +109,9 @@ public class BFSTree {
         this.root = insertHelper(this.root, node);
     };
 
-    /** Inorder traversal tree content display. */
-    public void inorder() {
-        inorderHelper(this.root);
+    /** InOrder traversal tree content display. */
+    public void inOrder() {
+        inOrderHelper(this.root);
         System.out.println();
     };
 
