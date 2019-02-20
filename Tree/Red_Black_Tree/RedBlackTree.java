@@ -29,6 +29,7 @@ public class RedBlackTree {
             this.left = null;
             this.right = null;
             this.parent = null;
+            this.color = COLOR.RED;
         };
     };
 
@@ -39,6 +40,17 @@ public class RedBlackTree {
     public RedBlackTree() {
         this.root = null;
     };
+
+    /**
+     * Swaps the colors of the given nodes.
+     * @param n1    Node    Node color of to be swapped.
+     * @param n2    Node    Node color of to be swapped.
+     */
+    private void swapColor(Node n1, Node n2) {
+        COLOR tmpColor = n1.color;
+        n1.color = n2.color;
+        n2.color = tmpColor;
+    }
 
     /**
      * Performs a std bst insert.
@@ -207,9 +219,7 @@ public class RedBlackTree {
                         Right-rotation required
                     */
                     rotateRight(grandParentNode);
-                    COLOR tmpColor = parentNode.color;
-                    parentNode.color = grandParentNode.color;
-                    grandParentNode.color = tmpColor;
+                    swapColor(parentNode, grandParentNode);
                     node = parentNode;
                 }
             /* 
