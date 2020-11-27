@@ -34,8 +34,8 @@ class LinkedList:
 
     def __init__(self):
         self.length = 0
-        self.head : Node = None
-        self.tail : Node = None
+        self.head: Node = None
+        self.tail: Node = None
 
     def checkIndexBounds(self, idx):
         """ Checks if the given index is in the
@@ -52,7 +52,7 @@ class LinkedList:
             False otherwise.
         
         """
-        return idx >= 0 and idx < self.length
+        return idx >= 0 and idx <= self.length
     
     def add(self, value=None, node=None):
         """ Adds the given Node to the list

@@ -48,7 +48,9 @@ public class List<T> {
     };
 
     public T get(int idx) {
-        return idx <= this.size ? this.items[idx] : null;
+        return this.checkIndexBounds(idx) 
+            ? this.items[idx] 
+            : null;
     };
 
     public int indexOf(T t) {
@@ -62,7 +64,7 @@ public class List<T> {
     };
 
     public void remove(int idx) {
-        if (0 <= idx && idx <= this.size) {
+        if (this.checkIndexBounds(idx)) {
             for (int i = idx; i < this.size; i++) {
                 items[i] = items[i + 1];
             }
@@ -95,7 +97,7 @@ public class List<T> {
     };
 
     public void set(int idx, T t) {
-        if (0 <= idx && idx < this.size) {
+        if (this.checkIndexBounds(idx)) {
             items[idx] = t;
         }
     };
@@ -103,4 +105,8 @@ public class List<T> {
     public int capacity() {
         return this.capacity;
     };
+
+    private boolean checkIndexBounds(int idx) {
+        return idx >= 0 && idx <= this.size;
+    }
 };

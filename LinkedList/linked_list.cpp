@@ -66,7 +66,7 @@ class LinkedList {
 
 template<typename T>
 bool LinkedList<T>::checkIndexBounds(int idx) {
-    return (idx >= 0) && (idx < length);
+    return (idx >= 0) && (idx <= length);
 };
 
 template<typename T>

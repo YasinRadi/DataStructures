@@ -56,7 +56,7 @@ public class LinkedList<T>
     /// <param name="idx">Index to check</param>
     /// <returns>True if is in list bounds, false otherwise.</returns>
     protected bool CheckIndexBounds(int idx) {
-        return idx >= 0 && idx < length;
+        return idx >= 0 && idx <= length;
     }
 
     /// <summary>

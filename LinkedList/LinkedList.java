@@ -53,7 +53,7 @@ public class LinkedList<T> {
      * @return      boolean
      */
     private boolean checkIndexBounds(int idx) {
-        return (idx >= 0) && (idx < this.length);
+        return (idx >= 0) && (idx <= this.length);
     };
 
     /**
