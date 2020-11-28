@@ -32,10 +32,10 @@ class Node:
     """
     def __init__(self, data):
         self.data = data
-        self.color : COLOR = None
-        self.left : Node = None
-        self.right : Node = None
-        self.parent : Node = None
+        self.color: COLOR = None
+        self.left: Node = None
+        self.right: Node = None
+        self.parent: Node = None
 
 class RedBlackTree:
     """ Red Black Tree implementation class. 
@@ -48,9 +48,9 @@ class RedBlackTree:
     """
 
     def __init__(self):
-        self.root : Node = None
+        self.root: Node = None
     
-    def _BSTInsert(self, root : Node, node : Node):
+    def _BSTInsert(self, root: Node, node: Node):
         """ Performs a STD BST insert. 
         
         Parameters:
@@ -81,7 +81,7 @@ class RedBlackTree:
         # Return unchanged node
         return root
     
-    def _inorderHelper(self, node : Node):
+    def _inorderHelper(self, node: Node):
         """ Recursive helper function for inorder traversal.
 
         Parameters:
@@ -96,7 +96,7 @@ class RedBlackTree:
         print(node.data, end=' ')
         self._inorderHelper(node.right)
     
-    def _levelOrderHelper(self, node : Node):
+    def _levelOrderHelper(self, node: Node):
         """ Helper function for level order traversal.
 
         Parameters:
@@ -105,6 +105,8 @@ class RedBlackTree:
             Starting node for traversal content display.
         
         """
+        if node is None: return
+
         # Queue of nodes to be displayed
         q = deque()
         q.append(node)
@@ -119,7 +121,7 @@ class RedBlackTree:
             if tmpNode.right is not None:
                 q.append(tmpNode.right)
     
-    def rotateLeft(self, node : Node):
+    def rotateLeft(self, node: Node):
         """ Performs a subtree left rotation
             starting at the given node.
         
@@ -175,7 +177,7 @@ class RedBlackTree:
         leftNode.right = node
         node.parent = leftNode
 
-    def fixViolation(self, node : Node):
+    def fixViolation(self, node: Node):
         """ Performs a fix of RB Tree properties
             to a subtree with root a the given node.
         
@@ -241,7 +243,7 @@ class RedBlackTree:
                     # node is left child
                     # Right-rotation requred
                     if node == parentNode.left:
-                        self.rotateLeft(parentNode)
+                        self.rotateRight(parentNode)
                         node = parentNode
                         parentNode = node.parent
                     

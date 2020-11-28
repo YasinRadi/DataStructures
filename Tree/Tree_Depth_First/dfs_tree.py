@@ -19,8 +19,8 @@ class Node:
     """
     def __init__(self, data):
         self.data = data
-        self.left : Node = None
-        self.right : Node = None
+        self.left: Node = None
+        self.right: Node = None
 
 class DFSTree:
     """ Depth-First Binary Search Tree implementation class. 
@@ -32,7 +32,7 @@ class DFSTree:
 
     """
     def __init__(self):
-        self.root : Node = None
+        self.root: Node = None
     
     def _insertHelper(self, root, node):
         """ Performs a STD BST insert. 
