@@ -1,1 +1,6 @@
 .vscode
+/target
+*.toml
+*.exe
+main.*
+*.lock
