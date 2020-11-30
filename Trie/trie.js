@@ -59,7 +59,6 @@ class Trie {
       }
 
       if (this.isEmpty(node)) {
-        delete node
         node = null
       }
 
@@ -70,7 +69,6 @@ class Trie {
     node.children[idx] = this.remove(node, key, depth + 1)
 
     if (this.isEmpty(node) && node.isEndOfWord) {
-      delete node
       node = null
     }
 

@@ -58,6 +58,19 @@ class HashTable:
         """
         return k % self.TABLE_SIZE
     
+    def getHashFromTable(self, k):
+        """ Get hash of given key. """
+        hash_ = self._hashFunc(k)
+
+        while self.m[hash_] is not None:
+            if self.m[hash_].key != k:
+                hash_ = self._hashFunc(hash_ + 1)
+                continue
+            
+            return hash_
+        
+        return None
+
     def insert(self, k, v):
         """ Insert a new map entry into the map.
 
@@ -70,9 +83,7 @@ class HashTable:
             Value to be inserted
 
         """
-        hash_ = self._hashFunc(k)
-        while self.m[hash_] is not None and self.m[hash_].key != k:
-            hash_ = self._hashFunc(hash_ + 1)
+        hash_ = self.getHashFromTable(k)
         
         self._size += 1
         self.m[hash_] = HashNode(k, v)
@@ -90,9 +101,7 @@ class HashTable:
             Value mapped to k.
         
         """
-        hash_ = self._hashFunc(k)
-        while self.m[hash_] is not None and self.m[hash_].key != k:
-            hash_ = self._hashFunc(hash_ + 1)
+        hash_ = self.getHashFromTable(k)
         
         return self.m[hash_].value if self.m[hash_] is not None else -1
     
@@ -114,7 +123,7 @@ class HashTable:
         """ Display map<K, V> content. """
         for n in self.m:
             if n is not None:
-                print('{{K: {0}, V: {1}}}'.format(n.key, n.value))
+                print(f'{{K: {n.key}, V: {n.value}}}')
     
     def remove(self, k):
         """ Remove a <K, V> from map given a K.
@@ -125,13 +134,7 @@ class HashTable:
             Key of value to remove.
         
         """
-        hash_ = self._hashFunc(k)
-        while self.m[hash_] is not None:
-            if self.m[hash_].key != k:
-                hash_ = self._hashFunc(hash_ + 1)
-                continue
-            
-            break
+        hash_ = self.getHashFromTable(k)
         
         if self.m[hash_] is None:
             return
