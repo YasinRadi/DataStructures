@@ -20,6 +20,7 @@ class Trie:
         crawl = self.root
         
         for i in range(len(key)):
+            # Get 0-idx position in alphabet
             idx = ord(key[i]) - ord('a')
             # If current char is not present
             if crawl.children[idx] is None:
@@ -28,18 +29,23 @@ class Trie:
         
         crawl.isEndOfWord = True
     
-    def search(self, key):
+    def startsPrefix(self, prefix):
         crawl = self.root
-
-        for i in range(len(key)):
-            idx = ord(key[i]) - ord('a')
+        for c in prefix:
+            idx = ord(c) - ord('a')
             if crawl.children[idx] is None: 
-                return False
+                return None
             
-            crawl = crawl.children[idx]
-        
-        return crawl is not None and crawl.isEndOfWord
+            crawl = crawl.children[idx]            
+        return crawl
+
+    def search(self, key):
+        node = self.startsPrefix(key)        
+        return node is not None and node.isEndOfWord
             
+    def startsWith(self, prefix):
+        node = self.startsPrefix(prefix)
+        return node is not None
 
     def isEmpty(self, node):
         for i in range(ALPHABET_SIZE):
@@ -92,3 +98,11 @@ class Trie:
             if node.children[i]:
                 string[level] = chr(i + ord('a'))
                 self.display(string, node.children[i], level + 1)
+
+if __name__ == '__main__':
+    trie = Trie()
+
+    trie.insert('app')
+    print(f"Is app in trie?: {trie.search('app')}")
+    print(f'Start with app: {trie.startsWith("ap")}')
+    
